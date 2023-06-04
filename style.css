@@ -1,0 +1,44 @@
+body {
+  background-color: #f8f8f8;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  margin-top: 200px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#buttonNo {
+	background-color: red;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button.move-animation {
+  position: absolute;
+  transition: all 0.1s ease-in-out;
+}
+

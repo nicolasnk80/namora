@@ -1,103 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Pedido de Namoro</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f2f2f2;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
-
-    #question {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    #buttons {
-      display: flex;
-    }
-
-    .button {
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-right: 10px;
-      transition: transform 0.1s;
-    }
-
-    #yes {
-      background-color: green;
-      color: white;
-    }
-
-    #no {
-      background-color: red;
-      color: white;
-      position: absolute;
-      transition: top 0.5s, left 0.5s;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="question">
-    <h3>Você aceita namorar comigo?</h3>
+  <div class="container">
+    <h1>Você aceita namorar comigo?</h1>
+    <div class="buttons">
+      <button id="buttonYes">Sim</button>
+      <button id="buttonNo">Não</button>
+    </div>
   </div>
-  <div id="buttons">
-    <button id="yes" class="button">Sim</button>
-    <button id="no" class="button">Não</button>
-  </div>
 
-  <script>
-    var noButton = document.getElementById('no');
-
-    // Função para obter uma posição aleatória dentro do viewport
-    function getRandomPosition() {
-      var screenWidth = window.innerWidth - noButton.clientWidth;
-      var screenHeight = window.innerHeight - noButton.clientHeight;
-      var randomX = Math.floor(Math.random() * screenWidth);
-      var randomY = Math.floor(Math.random() * screenHeight);
-      return [randomX, randomY];
-    }
-
-    // Função para atualizar a posição do botão "Não"
-    function updatePosition() {
-      var position = getRandomPosition();
-      noButton.style.left = position[0] + 'px';
-      noButton.style.top = position[1] + 'px';
-    }
-
-    // Função para calcular a distância entre o botão "Não" e o cursor do mouse
-    function calculateDistance(mouseX, mouseY) {
-      var noButtonRect = noButton.getBoundingClientRect();
-      var noButtonX = noButtonRect.left + (noButtonRect.width / 2);
-      var noButtonY = noButtonRect.top + (noButtonRect.height / 2);
-      var dx = noButtonX - mouseX;
-      var dy = noButtonY - mouseY;
-      return Math.sqrt(dx * dx + dy * dy);
-    }
-
-    // Função para lidar com o movimento do botão "Não"
-    function handleMouseMove(event) {
-      var distance = calculateDistance(event.clientX, event.clientY);
-
-      // Se a distância for menor que 100 pixels, atualiza a posição do botão "Não"
-      if (distance < 100) {
-        updatePosition();
-      }
-    }
-
-    // Adiciona o evento de movimento do mouse ao documento
-    document.addEventListener('mousemove', handleMouseMove);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
